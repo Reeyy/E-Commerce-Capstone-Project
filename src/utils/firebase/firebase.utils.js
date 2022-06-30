@@ -51,6 +51,8 @@ export const createUserDocumentFromAuth = async (userAuth) => {
       console.log("error create the user", error.message);
     }
   }
+
+  return userDocRef;
   //* if user data does not exist
   //* create / set the document with the data from userAuth in my collection
 
