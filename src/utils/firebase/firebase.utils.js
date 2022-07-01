@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
@@ -43,12 +44,12 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
   const userDocRef = doc(db, "user", userAuth.uid);
-  console.log(userAuth);
+  // console.log(userAuth);
   //* userSnapshot untuk cek apa ada cek apakah ada instance yang ada
   //* dan membebuat kita bisa akses data
 
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot.exists());
+  // console.log(userSnapshot.exists());
   //* untuk membuat/mengambil user document
 
   if (!userSnapshot.exists()) {
@@ -88,3 +89,5 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   //*jika ada
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => await signOut(auth);
