@@ -5,15 +5,10 @@ import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { async } from "@firebase/util";
 
 const Navgation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
   return (
     <>
       <div className="navigation">
@@ -25,7 +20,7 @@ const Navgation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span onClick={signOutHandler} className="nav-link">
+            <span onClick={signOutUser} className="nav-link">
               SiGN OUT
             </span>
           ) : (

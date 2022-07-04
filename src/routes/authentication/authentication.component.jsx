@@ -14,7 +14,7 @@ const Redirect = async () => {
   if (respone) {
     const userDocRef = await createUserDocumentFromAuth(respone.user);
   }
-  console.log(respone);
+  // console.log(respone);
 };
 const Authentication = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const Authentication = () => {
 
   const logGoogleUser = async () => {
     const respone = await signInWithGooglePopup();
-    console.log(respone);
+    // console.log(respone);
     const userDocRef = await createUserDocumentFromAuth(respone.user);
 
     //! w/Destructuring
