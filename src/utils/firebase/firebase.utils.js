@@ -98,3 +98,12 @@ export const onAuthStateChangedListener = (callback) => {
   ///! ini simple nya gini
   //! onAuthStateChanged(auth, (user) => console.log(user));
 };
+
+// *onAuthStateChanged
+// *ini membuat 3 listener ya itu next,eror dan complete
+
+// *jadi bisa juga kita buat seperti ini pada line 96-97
+// !export const onAuthStateChangedListener = (callback,erorCallback,completeCallback) => {
+//  ! onAuthStateChanged(auth, callback,erorCallback,completeCallback);
+
+// * ini di sebut observer patern
